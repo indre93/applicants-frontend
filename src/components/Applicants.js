@@ -1,6 +1,7 @@
 import React from 'react';
 import Table from 'react-bootstrap/Table';
 import Applicant from './Applicant';
+import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 
 // Applicants component is responsible for rendering a list of applicants
@@ -9,9 +10,11 @@ const Applicants = (props) => {
     <React.Fragment>
       {/* Include button to add new applicant */}
       <div className="add-btn">
+        <Link to="/create">
           <Button variant="outline-dark" size="lg">
             Add New Applicant
           </Button>
+        </Link>
       </div>
       {/* Import Table from react-bootstrap for readability and qucik styling */}
       <Table hover responsive>

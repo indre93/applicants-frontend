@@ -5,9 +5,11 @@ const useFetch = (url) => {
   // Set initial value of data and error to null
   const [data, setData] = React.useState(null);
   const [error, setError] = React.useState(null);
+  const [isPending, setIsPending] = React.useState(true);
 
   // Use useEffect Hook to fetch mock json from db.json file.
   React.useEffect(() => {
+
     fetch(url)
       .then(resp => {
         if (!resp.ok) {
@@ -17,13 +19,17 @@ const useFetch = (url) => {
       })
       .then(data => {
         setData(data);
+        setIsPending(false);
         setError(null);
       })
       // add catch to catch any network or fetching errors
-      .catch(error => setError(error.message));
+      .catch(error => {
+        setError(error.message);
+        setIsPending(false);
+      });
   }, [url]);
 
-  return { data, error };
+  return { data, error, isPending };
 };
 
 export default useFetch;

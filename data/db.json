@@ -1,0 +1,52 @@
+{
+  "applicants": [{
+      "id": "1",
+      "firstName": "maxime",
+      "lastName": "harum",
+      "occupation": "possimus",
+      "ssn": "123456789"
+    },
+    {
+      "id": "2",
+      "firstName": "laboriosam",
+      "lastName": "est",
+      "occupation": "assumenda",
+      "ssn": "123456789"
+    },
+    {
+      "id": "3",
+      "firstName": "consectetur",
+      "lastName": "libero",
+      "occupation": "beatae",
+      "ssn": "123456789"
+    },
+    {
+      "id": "4",
+      "firstName": "molestiae",
+      "lastName": "autem",
+      "occupation": "dolores",
+      "ssn": "123456789"
+    },
+    {
+      "id": "5",
+      "firstName": "iste",
+      "lastName": "totam",
+      "occupation": "illum",
+      "ssn": "123456789"
+    },
+    {
+      "id": "6",
+      "firstName": "iusto",
+      "lastName": "ipsam",
+      "occupation": "veniam",
+      "ssn": "123456789"
+    },
+    {
+      "id": "7",
+      "firstName": "porro",
+      "lastName": "qui",
+      "occupation": "eum",
+      "ssn": "123456789"
+    }
+  ]
+}

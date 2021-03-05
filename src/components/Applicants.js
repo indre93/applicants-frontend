@@ -1,5 +1,6 @@
 import React from 'react';
 import Table from 'react-bootstrap/Table';
+import Applicant from './Applicant';
 
 // Applicants component is responsible for rendering list of applicants
 const Applicants = (props) => {
@@ -17,7 +18,10 @@ const Applicants = (props) => {
         </tr>
       </thead>
       <tbody>
-
+        {/* Use map() method to iterate through the array of objects and send each object to the Applicant component as a prop to be rendered in its own row */}
+        {props.applicants.map((applicant) =>
+          <Applicant key={applicant.id} applicant={applicant} />
+        )}
       </tbody>
     </Table>
   );

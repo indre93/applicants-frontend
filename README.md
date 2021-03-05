@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+# applicants-list-frontend
+Initialized application using create-react-app and removed all files from the src directory except for App.js, App.css, and index.js.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+To help keep code organized and maintainable, I used 3 components:
 
-## Available Scripts
+- App component is at the top level and it's responsible for storing state.
+- Applicants component is responsible for rendering the list of applicants.
+- Applicant component is responsible for rendering each applicant's properties: first name, last name, occupation, and ssn.
 
-In the project directory, you can run:
+## json-server
+Used json-server library to create fake API with CRUD functionality. To accomplish this, in the application root's directory I created a data folder, and then a db.json file with some mock json.
 
-### `yarn start`
+- To run the server type: `$ npx json-server --watch data/db.json --port 8000`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+( Note: Specify port number otherwise it will automatically try to go to port 3000)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## React Hooks
+> To avoid writing class components and stick to functional components, I utilized State Hooks and Effect Hooks.
 
-### `yarn test`
+- Created a Custom Hook useFetch to handle fetching data and make it reusable.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## react-router-dom
+Utilized react-router-dom for routing and navigating to:
 
-### `yarn build`
+- home page (/), which displays all applicants.
+- create page (/create), which displays form to add a new applicant.
+- update page (/edit), which displays form to update an existing applicant.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## react-bootstrap
+Utilized react-bootstrap framework for quick styling
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Installed framework: `$ npm install react-bootstrap bootstrap`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Then imported the following in index.js: `$ import 'bootstrap/dist/css/bootstrap.min.css';`
 
-### `yarn eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

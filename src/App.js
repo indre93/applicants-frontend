@@ -15,6 +15,11 @@ function App() {
         <h1>Applicants</h1>
       </div>
 
+      {/* Include button to add new applicant */}
+      <div className="add-btn">
+        <Button variant="outline-dark">Add Applicant</Button>
+      </div>
+
       {/* Pass data as props to Applicants component */}
       {/* Use JS logical && operator to conditionally include an element */}
       {/* If applicants state has a value and it evaluates to true, then the element after && will appear in the output */}

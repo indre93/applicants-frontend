@@ -4,6 +4,7 @@ import useFetch from './useFetch';
 import './App.css';
 import Container from 'react-bootstrap/Container';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import CreateApplicant from "./components/CreateApplicant";
 
 // Because props are only passed from top to bottom in a component tree, App component will handle state and pass it as props to child components.
 
@@ -30,6 +31,9 @@ function App() {
               {isPending && <h3>Loading...</h3>}
               {error && <div>{error}</div>}
               {data && <Applicants applicants={data} />}
+            </Route>
+            <Route path="/create">
+              <CreateApplicant />
             </Route>
           </Switch>
         </Container>

@@ -1,7 +1,11 @@
+import Applicants from "./components/Applicants";
+import './App.css';
 function App() {
   return (
     <div className="App">
-      <h1>Applicants</h1>
+      <div className="App-header">
+        <h1>Applicants</h1>
+      </div>
     </div>
   );
 }

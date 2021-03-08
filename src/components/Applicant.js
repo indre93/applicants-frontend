@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import { useHistory } from 'react-router-dom';
 
@@ -21,7 +22,11 @@ const Applicant = ({ applicant }) => {
       <td>{applicant.occupation}</td>
       <td>{applicant.ssn}</td>
       <td>
-        <Button variant="secondary">Update</Button>
+        <Link to={`edit/${applicant.id}`}>
+          <Button variant="secondary">
+            Edit
+          </Button>
+        </Link>
       </td>
       <td>
         <Button onClick={handleClick} variant="danger" >Remove</Button>

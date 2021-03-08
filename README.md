@@ -19,8 +19,6 @@ To help keep code organized and maintainable, I used the following components:
 ## React Hooks
 > To avoid writing class components and stick to functional components, I utilized State Hooks and Effect Hooks.
 
-- Created a Custom Hook useFetch to handle fetching data and make it reusable.
-
 ## react-router-dom
 > Utilized react-router-dom for routing and navigating to:
 

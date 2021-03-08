@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 
-// ApplicantList component is responsible for fetching and rendering applicants' list
+// ApplicantList component is responsible for rendering a list of applicants
 const ApplicantList = () => {
   const url = "http://localhost:8000/applicants";
   // applicants state Hook will be used to hold the state of the fetched data.
@@ -12,6 +12,14 @@ const ApplicantList = () => {
   const [error, setError] = React.useState(null);
   // isLoading state Hook will indicate if data is being fetched.
   const [isLoading, setIsLoading] = React.useState(false);
+
+  const handleDelete = (id) => {
+    fetch(url + `/${id}`, {
+      method: "DELETE"
+    }).then(() => {
+      getApplicants();
+    });
+  };
 
   const getApplicants = () => {
     fetch(url)
@@ -29,6 +37,12 @@ const ApplicantList = () => {
         setIsLoading(false);
       });
   };
+
+  // Use useEffect to fetch data once the component mounts or the state changes
+  React.useEffect(() => {
+    getApplicants();
+  }, []);
+
   return (
     <React.Fragment>
       {/* Include button to add new applicant */}

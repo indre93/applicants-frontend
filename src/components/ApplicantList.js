@@ -4,10 +4,31 @@ import { Link } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 
-// ApplicantList component is responsible for rendering a list of applicants
-// destructure props
-const ApplicantList = ({ applicants, error, isLoading, handleDelete }) => {
+// ApplicantList component is responsible for fetching and rendering applicants' list
+const ApplicantList = () => {
+  const url = "http://localhost:8000/applicants";
+  // applicants state Hook will be used to hold the state of the fetched data.
+  const [applicants, setApplicants] = React.useState(null);
+  const [error, setError] = React.useState(null);
+  // isLoading state Hook will indicate if data is being fetched.
+  const [isLoading, setIsLoading] = React.useState(false);
 
+  const getApplicants = () => {
+    fetch(url)
+      .then(resp => {
+        if (!resp.ok) throw Error("Unable to fetch data");
+        return resp.json();
+      })
+      .then(data => {
+        setApplicants(data);
+        setIsLoading(false);
+        setError(null);
+      })
+      .catch(error => {
+        setError(error.message);
+        setIsLoading(false);
+      });
+  };
   return (
     <React.Fragment>
       {/* Include button to add new applicant */}

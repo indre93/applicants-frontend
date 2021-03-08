@@ -2,6 +2,7 @@ import React from 'react';
 import Applicants from "./components/Applicants";
 import useFetch from './useFetch';
 import './App.css';
+import { Route, Switch } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import CreateApplicant from "./components/CreateApplicant";
@@ -13,8 +14,7 @@ function App() {
   const { data, error, isPending } = useFetch("http://localhost:8000/applicants");
 
   return (
-    // So we can use Router in the entire application
-    <Router>
+    <React.Fragment>
       <div className="App">
         <div className="App-header">
           <Link to="/"><h1>Applicants</h1></Link>
@@ -37,9 +37,8 @@ function App() {
             </Route>
           </Switch>
         </Container>
-
       </div>
-    </Router>
+    </React.Fragment>
   );
 }
 

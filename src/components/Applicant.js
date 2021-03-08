@@ -1,19 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
-import { useHistory } from 'react-router-dom';
+import ConfirmationModal from './ConfirmationModal';
 
-// Applicant component is responsible for rendering applicant's properties
-const Applicant = ({ applicant }) => {
-  const history = useHistory();
-
-  const handleClick = () => {
-    fetch(`http://localhost:8000/applicants/${applicant.id}`, {
-      method: "DELETE"
-    }).then(() => {
-      history.push("/");
-    });
-  };
+// Applicant component is responsible for rendering each applicant's properties.
+const Applicant = ({ applicant, handleDelete }) => {
+  // Use React state Hook to indicate if delete button has been clicked on or not.
+  const [show, setShow] = React.useState(false);
 
   return (
     <tr>
@@ -29,7 +22,17 @@ const Applicant = ({ applicant }) => {
         </Link>
       </td>
       <td>
-        <Button onClick={handleClick} variant="danger" >Remove</Button>
+        <Button variant="danger" onClick={() => setShow(true)}>
+          Remove
+        </Button>
+
+        {/* When the show state is true a confimation modal will be displayed.*/}
+        <ConfirmationModal
+          show={show}
+          fullname={`${applicant.firstName} ${applicant.lastName}`}
+          confirmed={() => handleDelete(applicant.id)}
+          onHide={() => setShow(false)}
+        />
       </td>
     </tr>
   );

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 
-// ApplicantList component is responsible for rendering a list of applicants
+// ApplicantList component is responsible for fetching and rendering applicants' list
 const ApplicantList = () => {
   const url = "http://localhost:8000/applicants";
   // applicants state Hook will be used to hold the state of the fetched data.

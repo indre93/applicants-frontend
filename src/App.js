@@ -17,7 +17,7 @@ function App() {
     <React.Fragment>
       <div className="App">
         <div className="App-header">
-          <Link to="/"><h1>Applicants</h1></Link>
+          <h1>Applicants</h1>
         </div>
 
         <Container>

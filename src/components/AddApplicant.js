@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-const CreateApplicant = () => {
+const AddApplicant = () => {
   const [applicant, setApplicant] = React.useState({
     firstName: "", lastName: "", occupation: "", ssn: ""
   });
@@ -110,4 +110,4 @@ const CreateApplicant = () => {
   );
 };
 
-export default CreateApplicant;
+export default AddApplicant;

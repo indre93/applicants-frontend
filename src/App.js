@@ -4,11 +4,10 @@ import useFetch from './useFetch';
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import CreateApplicant from "./components/CreateApplicant";
+import AddApplicant from "./components/AddApplicant";
 
-// Because props are only passed from top to bottom in a component tree, App component will handle state and pass it as props to child components.
-
+// Add Route to render the specified component when the path matches the current URL.
+// Add Switch to render the first Route that matches the url
 function App() {
   // Desctructure the useFetch component
   const { data, error, isPending } = useFetch("http://localhost:8000/applicants");
@@ -24,17 +23,8 @@ function App() {
           {/* Use Switch to ensure only one route shows at a time */}
           {/* The component in the Route will be shown when visiting specified route path  */}
           <Switch>
-            <Route exact path="/">
-              {/* Pass data as props to Applicants component */}
-              {/* Use JS logical && operator to conditionally include an element */}
-              {/* If applicants state has a value and it evaluates to true, then the element after && will appear in the output */}
-              {isPending && <h3>Loading...</h3>}
-              {error && <div>{error}</div>}
-              {data && <Applicants applicants={data} />}
-            </Route>
-            <Route path="/create">
-              <CreateApplicant />
-            </Route>
+            <Route path="/create" component={AddApplicant} />
+            <Route path="/edit/:id" component={EditApplicant} />
           </Switch>
         </Container>
       </div>

@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import ApplicantList from './components/ApplicantList';
 import AddApplicant from "./components/AddApplicant";
+import EditApplicant from "./components/EditApplicant";
 
 // Add Route to render the specified component when the path matches the current URL.
 // Add Switch to render the first Route that matches the url

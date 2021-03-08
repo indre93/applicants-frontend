@@ -1,9 +1,8 @@
 import React from 'react';
-import Applicants from "./components/Applicants";
-import useFetch from './useFetch';
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
+import ApplicantList from './components/ApplicantList';
 import AddApplicant from "./components/AddApplicant";
 
 // Add Route to render the specified component when the path matches the current URL.
@@ -20,9 +19,15 @@ function App() {
         </div>
 
         <Container>
-          {/* Use Switch to ensure only one route shows at a time */}
-          {/* The component in the Route will be shown when visiting specified route path  */}
           <Switch>
+            <Route exact path="/">
+              <ApplicantList
+                applicants={applicants}
+                error={error}
+                isLoading={isLoading}
+                handleDelete={handleDelete}
+              />
+            </Route>
             <Route path="/create" component={AddApplicant} />
             <Route path="/edit/:id" component={EditApplicant} />
           </Switch>

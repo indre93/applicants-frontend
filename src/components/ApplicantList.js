@@ -1,12 +1,12 @@
 import React from 'react';
-import Table from 'react-bootstrap/Table';
 import Applicant from './Applicant';
 import { Link } from 'react-router-dom';
+import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 
 // ApplicantList component is responsible for rendering a list of applicants
 // destructure props
-const Applicants = ({ applicants, error, isLoading, handleDelete }) => {
+const ApplicantList = ({ applicants, error, isLoading, handleDelete }) => {
 
   return (
     <React.Fragment>
@@ -51,4 +51,4 @@ const Applicants = ({ applicants, error, isLoading, handleDelete }) => {
   );
 };
 
-export default Applicants;
+export default ApplicantList;
